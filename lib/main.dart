@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MaterialApp(
-    title: "My first app",
-    home: HomePage(),
-  ));
+void main() => runApp(const myApp());
+
+class myApp extends StatelessWidget {
+  const myApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Demo App',
+      home: const HomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+      ),
+    );
+  }
 }
 
 class HomePage extends StatelessWidget {
@@ -14,48 +24,51 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("My lookApp"),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Align(
-          alignment: Alignment.center,
-          child: Container(
-            color: Colors.black,
-            width: 200,
-            height: 400,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    alignment: Alignment.center,
-                    width: 100,
-                    height: 100,
-                    color: Colors.amberAccent,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    alignment: Alignment.center,
-                    width: 100,
-                    height: 100,
-                    color: Colors.green,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    alignment: Alignment.center,
-                    width: 100,
-                    height: 100,
-                    color: Colors.red,
-                  ),
-                ],
-              ),
-            ),
+        title: const Text(
+          'Demo Home',
+          style: TextStyle(
+            fontFamily: 'Georgia',
           ),
         ),
+      ),
+      body: Container(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: const <Widget>[
+            // DrawerHeader(
+            //   child: Text(
+            //     "Hi! I'm drawer.",
+            //     style: TextStyle(
+            //       color: Colors.white,
+            //     ),
+            //   ),
+            //   decoration: BoxDecoration(
+            //     color: Colors.indigo,
+            //   ),
+            // ),
+
+            UserAccountsDrawerHeader(
+              accountName: Text("Suraj Pulami"),
+              accountEmail: Text("surajpulami@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(
+                    "https://static.zerochan.net/Narberal.Gamma.full.2394509.jpg"),
+              ),
+            ),
+
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Account'),
+              subtitle: Text('Personal'),
+              trailing: Icon(Icons.edit),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.edit),
       ),
     );
   }
