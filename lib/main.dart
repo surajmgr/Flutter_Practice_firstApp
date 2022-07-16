@@ -16,33 +16,43 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("My lookApp"),
       ),
-      body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(8),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Align(
           alignment: Alignment.center,
-          width: 100,
-          height: 100,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.blueAccent,
-                blurRadius: 5,
-                offset: Offset(2.0, 5.0),
+          child: Container(
+            color: Colors.black,
+            width: 200,
+            height: 400,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    alignment: Alignment.center,
+                    width: 100,
+                    height: 100,
+                    color: Colors.amberAccent,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    alignment: Alignment.center,
+                    width: 100,
+                    height: 100,
+                    color: Colors.green,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(8),
+                    alignment: Alignment.center,
+                    width: 100,
+                    height: 100,
+                    color: Colors.red,
+                  ),
+                ],
               ),
-            ],
-            color: Colors.amberAccent,
-            gradient: const LinearGradient(
-              colors: [Colors.red, Colors.yellow],
-            ),
-          ),
-          child: const Text(
-            "I'm a Box",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
             ),
           ),
         ),
