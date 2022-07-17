@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
               accountEmail: Text("surajpulami@gmail.com"),
               currentAccountPicture: CircleAvatar(
                 backgroundImage: NetworkImage(
-                    "https://static.zerochan.net/Narberal.Gamma.full.2394509.jpg"),
+                    "https://images.unsplash.com/photo-1460904577954-8fadb262612c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1090&q=80"),
               ),
             ),
 
