@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
                 },
                 itemCount: data.length,
               )
-            : Center(
+            : const Center(
                 child: CircularProgressIndicator(),
               ),
       ),

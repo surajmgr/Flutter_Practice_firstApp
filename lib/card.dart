@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myfirstapp/bgImage.dart';
 
 class myCard extends StatelessWidget {
   const myCard({
@@ -16,12 +17,7 @@ class myCard extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset(
-            "assets/bg.jpg",
-            fit: BoxFit.cover,
-            width: MediaQuery.of(context).size.width,
-            //height: MediaQuery.of(context).size.height,
-          ),
+          bgImage(),
           const SizedBox(
             height: 10,
           ),
