@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:myfirstapp/drawer.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:myfirstapp/utils/Constants.dart';
+import 'package:myfirstapp/widgets/drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  TextEditingController _nameController = TextEditingController();
+  final _nameController = TextEditingController();
   var myText = "Change Me!";
   var url = "https://jsonplaceholder.typicode.com/photos";
   var data;
@@ -40,6 +42,15 @@ class _HomePageState extends State<HomePage> {
             fontFamily: 'Georgia',
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Constants.prefs?.setBool("loggedIn", false);
+              Navigator.pushReplacementNamed(context, "/login");
+            },
+            icon: const Icon(Icons.exit_to_app_sharp),
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -61,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                 child: CircularProgressIndicator(),
               ),
       ),
-      drawer: myDrawer(),
+      drawer: const myDrawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           myText = _nameController.text;

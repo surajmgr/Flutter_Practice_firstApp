@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myfirstapp/bgImage.dart';
+import 'package:myfirstapp/widgets/bgImage.dart';
 
 class myCard extends StatelessWidget {
   const myCard({
@@ -17,7 +17,7 @@ class myCard extends StatelessWidget {
     return Card(
       child: Column(
         children: <Widget>[
-          bgImage(),
+          const bgImage(),
           const SizedBox(
             height: 10,
           ),

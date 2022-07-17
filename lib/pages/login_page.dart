@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:myfirstapp/bgImage.dart';
-import 'package:myfirstapp/pages/home_page.dart';
+import 'package:myfirstapp/utils/Constants.dart';
+import 'package:myfirstapp/widgets/bgImage.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class _loginPageState extends State<loginPage> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          bgImage(),
+          const bgImage(),
           Center(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -67,7 +67,8 @@ class _loginPageState extends State<loginPage> {
                           //     context,
                           //     MaterialPageRoute(
                           //         builder: (context) => HomePage()));
-                          Navigator.pushNamed(context, "/home");
+                          Constants.prefs?.setBool("loggedIn", true);
+                          Navigator.pushReplacementNamed(context, "/home");
                         },
                         child: const Text("Sign In!"),
                       ),

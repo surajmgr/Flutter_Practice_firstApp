@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:myfirstapp/pages/home_page.dart';
 import 'package:myfirstapp/pages/login_page.dart';
+import 'package:myfirstapp/utils/Constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(const myApp());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  Constants.prefs = await SharedPreferences.getInstance();
+
+  runApp(const myApp());
+}
 
 class myApp extends StatelessWidget {
   const myApp({Key? key}) : super(key: key);
@@ -10,14 +18,17 @@ class myApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      //debugShowCheckedModeBanner: false,
       title: 'Demo App',
-      home: const loginPage(),
+      home: Constants.prefs!.getBool("loggedIn") == true
+          ? const HomePage()
+          : const loginPage(),
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
       ),
       routes: {
-        "/login": (context) => loginPage(),
-        "/home": (context) => HomePage(),
+        "/login": (context) => const loginPage(),
+        "/home": (context) => const HomePage(),
       },
     );
   }
