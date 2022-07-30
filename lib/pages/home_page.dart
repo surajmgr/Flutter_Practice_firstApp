@@ -13,8 +13,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _nameController = TextEditingController();
-  var myText = "Change Me!";
   var url = "https://jsonplaceholder.typicode.com/photos";
   var data;
 
@@ -75,8 +73,7 @@ class _HomePageState extends State<HomePage> {
       drawer: const myDrawer(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          myText = _nameController.text;
-          setState(() {});
+          Navigator.pushNamed(context, "/next_pg");
         },
         child: const Icon(Icons.edit),
       ),

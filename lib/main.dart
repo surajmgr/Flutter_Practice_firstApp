@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myfirstapp/pages/home_page.dart';
 import 'package:myfirstapp/pages/login_page.dart';
+import 'package:myfirstapp/pages/next_page.dart';
 import 'package:myfirstapp/utils/Constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -29,6 +30,7 @@ class myApp extends StatelessWidget {
       routes: {
         "/login": (context) => const loginPage(),
         "/home": (context) => const HomePage(),
+        "/next_pg": (context) => const nextPage(),
       },
     );
   }
